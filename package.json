@@ -1,0 +1,28 @@
+{
+    "name": "webpack5",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config ./webpack/production.ts",
+        "start": "webpack --config ./webpack/develop.ts --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/react": "^17.0.3",
+        "@types/react-dom": "^17.0.2",
+        "fork-ts-checker-webpack-plugin": "^6.1.1",
+        "html-webpack-plugin": "^5.3.1",
+        "ts-loader": "^8.0.18",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.3",
+        "webpack": "^5.24.4",
+        "webpack-cli": "^4.5.0"
+    },
+    "dependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
+    }
+}
