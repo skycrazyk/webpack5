@@ -32,7 +32,10 @@ const config: WebpackFnConfig = (env, args) => {
                 },
             ],
         },
-        plugins: [new ForkTsCheckerWebpackPlugin(), new HtmlWebpackPlugin()],
+        plugins: [
+            new ForkTsCheckerWebpackPlugin(),
+            new HtmlWebpackPlugin({ template: "./src/index.html" }),
+        ],
     };
 };
 
