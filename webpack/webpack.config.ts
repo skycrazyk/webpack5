@@ -16,17 +16,6 @@ const config: WebpackFnConfig = (env, args) => {
             path: path.resolve(__dirname, "../dist"),
             clean: true,
         },
-        optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    vendors: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: "vendors",
-                        chunks: "all",
-                    },
-                },
-            },
-        },
         resolve: {
             extensions: [".ts", ".tsx", ".js", ".jsx"],
         },
@@ -47,6 +36,17 @@ const config: WebpackFnConfig = (env, args) => {
             new ForkTsCheckerWebpackPlugin(),
             new HtmlWebpackPlugin({ template: "./src/index.html" }),
         ],
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    vendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: "vendors",
+                        chunks: "all",
+                    },
+                },
+            },
+        },
     };
 };
 
