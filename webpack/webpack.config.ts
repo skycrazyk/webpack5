@@ -30,6 +30,18 @@ const config: WebpackFnConfig = (env, args) => {
                         transpileOnly: true,
                     },
                 },
+                {
+                    test: /\.(jpg|png)$/,
+                    type: "asset/resource",
+                },
+                {
+                    test: /\.(svg)$/,
+                    type: "asset/inline",
+                },
+                {
+                    test: /\.(txt)$/,
+                    type: "asset/source",
+                },
             ],
         },
         plugins: [
