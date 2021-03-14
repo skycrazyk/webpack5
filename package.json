@@ -4,15 +4,16 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --config ./webpack/production.ts",
-        "start": "webpack --config ./webpack/develop.ts --watch",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "webpack-build": "cross-env TS_NODE_PROJECT=\"webpack/tsconfig.json\" webpack",
+        "build": "npm run webpack-build -- --config ./webpack/production.ts",
+        "start": "npm run webpack-build -- --config ./webpack/develop.ts --watch"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@types/react": "^17.0.3",
         "@types/react-dom": "^17.0.2",
+        "cross-env": "^7.0.3",
         "fork-ts-checker-webpack-plugin": "^6.1.1",
         "html-webpack-plugin": "^5.3.1",
         "ts-loader": "^8.0.18",
