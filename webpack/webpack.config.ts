@@ -2,6 +2,7 @@ import path from "path";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import packageJson from "../package.json";
 
 export type WebpackFnConfig<E = void> = (
     env: Partial<E> | undefined,
@@ -11,7 +12,13 @@ export type WebpackFnConfig<E = void> = (
 const config: WebpackFnConfig = (env, args) => {
     return {
         context: path.resolve(__dirname, "../"),
-        entry: "./src/index.ts",
+        entry: {
+            main: {
+                import: "./src/index.tsx",
+                dependOn: ["vendors"],
+            },
+            vendors: Object.keys(packageJson.dependencies),
+        },
         output: {
             path: path.resolve(__dirname, "../dist"),
             clean: true,
